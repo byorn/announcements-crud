@@ -6,9 +6,7 @@
 package byorn.codechallenge.announcement.util;
 
 import byorn.codechallenge.announcement.entity.Announcement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,7 +20,7 @@ public class DummyDataDatabaseAccess implements IDatabaseAccess{
          List<Announcement> list = new ArrayList(); 
        
          Announcement announcement = new Announcement();
-         announcement.setId(1);
+        
          announcement.setTitle("<a href='1'>There Is No Way To Protect Yourself If US Treasuries Default</a>");
          announcement.setBody("It is a long established fact that a reader will be "
                  + "distracted by the readable content of a page when looking at its layout. "
@@ -36,7 +34,7 @@ public class DummyDataDatabaseAccess implements IDatabaseAccess{
          
          
          Announcement announcement1 = new Announcement();
-         announcement1.setId(2);
+         
          announcement1.setTitle("<a href='2'>States keep watch on school deals</a>");
          announcement1.setBody("It is a long established fact that a reader will be distracted by the readable "
                  + "content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a "
@@ -49,7 +47,7 @@ public class DummyDataDatabaseAccess implements IDatabaseAccess{
          
          
          Announcement announcement2 = new Announcement();
-         announcement2.setId(3);
+         
          announcement2.setTitle("<a href='3'>Ron Paul Redux: The End Of Dollar Hegemony</a>");
          announcement2.setBody("It is a long established fact that a reader will be distracted by the readable "
                  + "content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a"
@@ -67,6 +65,11 @@ public class DummyDataDatabaseAccess implements IDatabaseAccess{
       
        return list;
         
+    }
+
+    @Override
+    public void createNew(Announcement announcement) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

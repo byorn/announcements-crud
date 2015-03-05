@@ -27,7 +27,7 @@ public class AnnouncementRestController{
     @GET 
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAsJson() {
+    public Response getAllAnnouncements() {
      
        return Response.ok( AnnouncementsDAO.newInstance().getAnnouncements()).build();
     }

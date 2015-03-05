@@ -12,20 +12,13 @@ package byorn.codechallenge.announcement.entity;
  */
 public class Announcement {
     
-    private Integer id;
+    
     private String title;
     private String body;
     private String startDate;
     private String expiryDate;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
+   
     public String getTitle() {
         return title;
     }

@@ -37,7 +37,6 @@
     <thead>
         
          <tr>
-            <th data-field="id">ID</th>
             <th data-field="title">TITLE</th>
             <th data-field="body">BODY</th>
             <th data-field="startDate">START DATE</th>

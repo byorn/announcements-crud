@@ -24,6 +24,7 @@ public class AnnouncementsDAO {
     
     public List<Announcement> getAnnouncements(){
         IDatabaseAccess dbAccess = new DummyDataDatabaseAccess();
+        
         return dbAccess.getAnnouncements();
     }
     
