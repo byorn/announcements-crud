@@ -56,10 +56,10 @@ public class MongoDBAccess implements IDatabaseAccess{
 	while(cursor.hasNext()) {
 	    DBObject dbObject = cursor.next();
             Announcement announcement = new Announcement();
-            announcement.setTitle(dbObject.get("title").toString());
-            announcement.setBody(dbObject.get("body").toString());
-            announcement.setStartDate(dbObject.get("startDate").toString());
-            announcement.setExpiryDate(dbObject.get("expiryDate").toString());
+            announcement.setTitle(Util.handleNull(dbObject.get("title")));
+            announcement.setBody(Util.handleNull(dbObject.get("body")));
+            announcement.setStartDate(Util.handleNull(dbObject.get("startDate")));
+            announcement.setExpiryDate(Util.handleNull(dbObject.get("expiryDate")));
             
             list.add(announcement);
         } 

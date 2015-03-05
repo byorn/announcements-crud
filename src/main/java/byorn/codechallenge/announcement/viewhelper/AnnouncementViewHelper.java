@@ -18,4 +18,13 @@ public class AnnouncementViewHelper {
         
     }
     
+    public static Announcement getAnnouncement(String title, String body, String expiryDate, String startDate){
+        Announcement obj = new Announcement();
+        obj.setTitle(title);
+        obj.setBody(body);
+        obj.setStartDate(startDate);
+        obj.setExpiryDate(expiryDate);
+        return obj;
+    }
+    
 }

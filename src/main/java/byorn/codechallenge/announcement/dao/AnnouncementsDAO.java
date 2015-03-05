@@ -8,6 +8,7 @@ package byorn.codechallenge.announcement.dao;
 import byorn.codechallenge.announcement.entity.Announcement;
 import byorn.codechallenge.announcement.util.DummyDataDatabaseAccess;
 import byorn.codechallenge.announcement.util.IDatabaseAccess;
+import byorn.codechallenge.announcement.util.MongoDBAccess;
 import java.util.List;
 
 /**
@@ -22,10 +23,23 @@ public class AnnouncementsDAO {
         return instance;
     }
     
-    public List<Announcement> getAnnouncements(){
+    public List<Announcement> getAnnouncementsDummyData(){
         IDatabaseAccess dbAccess = new DummyDataDatabaseAccess();
         
         return dbAccess.getAnnouncements();
+    }
+    
+    public List<Announcement> getAnnouncements(){
+        IDatabaseAccess dbAccess = new MongoDBAccess();
+        
+        return dbAccess.getAnnouncements();
+    }
+    
+    
+    public void createAnnouncement(Announcement obj){
+        IDatabaseAccess dbAccess = new MongoDBAccess();
+        
+        dbAccess.createNew(obj);
     }
     
 }

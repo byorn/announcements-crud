@@ -33,6 +33,9 @@
     <!--load this project's java script work -->
     <script src="resources/announcement.js"></script>
     
+    <!-- jQuery Form component for passing form Data -->
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
+    
     <table data-toggle="table" data-url="<%= request.getContextPath() %>/webresources/rest/get" data-cache="false" data-height="299">
     <thead>
         
@@ -50,7 +53,8 @@
     <a href="#popup" class="open-popup-link">Create New</a>
     
     <div id="popup" class="white-popup mfp-hide">
-          
+        
+        <form id="announcementForm" action="<%= request.getContextPath() %>/webresources/rest/post" method="post"> 
         <table>
             
             <tr>
@@ -81,7 +85,7 @@
                 </td>
             </tr>
             
-              <tr>
+            <tr>
                 <td>
                     Expiry Date
                 </td>
@@ -90,8 +94,17 @@
                 </td>
             </tr>
             
+            <tr>
+                <td>
+                   
+                </td>
+                <td>
+                    <input type="submit" value="Submit"/>
+                </td>
+            </tr>
+            
         </table>
-        
+        </form>
         
     </div>
     
