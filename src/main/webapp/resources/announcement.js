@@ -15,18 +15,18 @@ $(function(){
     
        
     
-    //On every row click of the bootstrap table, I will set the fields to the form 
-    //with the id
-    //if the id is not set, it means it is a create new.
+     //On row select of the table
      $('#announcements-table').bootstrapTable({
      }).on('click-row.bs.table', function (e, row, $element) {
                 
-               //selected row              
+               //when the row is selected set the fields to the form          
                 var selectedRow = JSON.stringify(row);
                 var obj = jQuery.parseJSON( selectedRow );
                 setFieldsToForm(obj);
                 
      }) .on('check.bs.table', function (e, row) {
+                
+                //when the checkbox of the row is selected set the fields to the form
                 var selectedRow = JSON.stringify(row);
                 var obj = jQuery.parseJSON( selectedRow );
                 setFieldsToForm(obj);
@@ -40,6 +40,7 @@ $(function(){
          $("#expirydate").val(row.expiryDate);
      }
 
+    //when create new button is pressed , clear all the fields in the form
     $("#createNewButton").click(function(){
         $("#id").val("");
         $("#title").val("");
@@ -48,7 +49,7 @@ $(function(){
         $("#startdate").val("");
     });
     
-    
+    //when the delete button is pressed call the delete jax rs service
     $("#delete").click(function(){
        
        var selectedRow = JSON.stringify($("#announcements-table").bootstrapTable('getSelections')); 
