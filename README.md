@@ -29,6 +29,6 @@ Running the Application
 3. in jboss-as-7.1.1.Final\bin run standalone.bat.<br/>
 4. Page can be accessed from <a href='http://localhost:8080/announcement/'>http://localhost:8080/announcement/</a>
 
-
+Alternatively: Run this application in Netbeans 8 IDE. Note: Running in Eclipse had a problem which needs further investigation.
 
 
