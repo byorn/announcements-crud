@@ -1,7 +1,7 @@
 # announcements-crud
 Technologies
 --------------------------
-Java (JEE 7 Web profile), JQuery, Bootstrap, RESTful, MongoDB, Maven, GIT, JBoss AS 7 <br/>
+Java (JEE 7 Web profile), JQuery, Bootstrap, RESTful, MongoDB, Maven, GIT, Jboss-as-7.1.1.Final <br/>
 
 Additional extensions used
 --------------------------
@@ -18,11 +18,16 @@ JQuery Form plugin to post form data easily  http://malsup.com/jquery/form/
 </ul>
 Prerequisites before running
 --------------------------
-Install Mongo DB and have the service running.
+Install Mongo DB and have the service running. <br/>
 Install JBoss AS 7,
 
 Running the Application
 --------------------------
+mvn clean install <br/>
+copy the built war file from the target directory to the Jboss - jboss-as-7.1.1.Final\standalone\deployments folder <br/>
+in jboss-as-7.1.1.Final\bin run standalone.bat.<br/>
+Page can be accessed from http://localhost:8080/announcement/
+
 
 
 
