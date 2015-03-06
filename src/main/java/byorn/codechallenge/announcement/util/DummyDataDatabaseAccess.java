@@ -71,5 +71,10 @@ public class DummyDataDatabaseAccess implements IDatabaseAccess{
     public void update(Announcement announcement) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
+
+    @Override
+    public void delete(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

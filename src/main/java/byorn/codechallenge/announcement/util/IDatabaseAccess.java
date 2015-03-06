@@ -11,4 +11,5 @@ public interface IDatabaseAccess {
     public List<Announcement> getAnnouncements();
     public void createNew(Announcement announcement);
     public void update(Announcement announcement);
+    public void delete(String id);
 }

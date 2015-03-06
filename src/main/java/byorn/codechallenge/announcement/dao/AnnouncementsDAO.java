@@ -11,36 +11,41 @@ import java.util.List;
  * @author Byorn
  */
 public class AnnouncementsDAO {
-    
-    private static final AnnouncementsDAO instance = new AnnouncementsDAO();
-    
-    public static AnnouncementsDAO newInstance(){
-        return instance;
+
+    private static final AnnouncementsDAO INSTANCE = new AnnouncementsDAO();
+
+    public static AnnouncementsDAO getInstance() {
+        return INSTANCE;
     }
-    
-    public List<Announcement> getAnnouncementsDummyData(){
+
+    public List<Announcement> getAnnouncementsDummyData() {
         IDatabaseAccess dbAccess = new DummyDataDatabaseAccess();
-        
+
         return dbAccess.getAnnouncements();
     }
-    
-    public List<Announcement> getAnnouncements(){
-        IDatabaseAccess dbAccess = new MongoDBAccess();
-        
+
+    public List<Announcement> getAnnouncements() {
+        IDatabaseAccess dbAccess = MongoDBAccess.getInstance();
+
         return dbAccess.getAnnouncements();
     }
-    
-    
-    public void createAnnouncement(Announcement obj){
-        IDatabaseAccess dbAccess = new MongoDBAccess();
-        
+
+    public void createAnnouncement(Announcement obj) {
+        IDatabaseAccess dbAccess = MongoDBAccess.getInstance();
+
         dbAccess.createNew(obj);
     }
-    
-     public void updateAnnouncement(Announcement obj){
-        IDatabaseAccess dbAccess = new MongoDBAccess();
-        
+
+    public void updateAnnouncement(Announcement obj) {
+        IDatabaseAccess dbAccess = MongoDBAccess.getInstance();
+
         dbAccess.update(obj);
     }
     
+    public void deleteAnnouncement(String id){
+         IDatabaseAccess dbAccess = MongoDBAccess.getInstance();
+         
+         dbAccess.delete(id);
+    }
+
 }

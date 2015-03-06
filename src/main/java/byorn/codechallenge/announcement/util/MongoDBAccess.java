@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import org.bson.types.ObjectId;
 
 /**
- *
+ * This class is a Singleton with a static factory
  * @author Byorn
  */
 public class MongoDBAccess implements IDatabaseAccess{
@@ -35,7 +35,11 @@ public class MongoDBAccess implements IDatabaseAccess{
     private final String COL_EXPIRYDATE="expiryDate";
     
     private static MongoClient mongoClient = null;
+    private static final MongoDBAccess INSTANCE = new MongoDBAccess();
     
+    public static MongoDBAccess getInstance(){
+        return INSTANCE;
+    }
       
     private DBCollection getDBCollection(){
        try {
@@ -101,5 +105,11 @@ public class MongoDBAccess implements IDatabaseAccess{
             query.put("_id", new ObjectId(id));
             DBObject dbObj = getDBCollection().findOne(query);
             return dbObj;
+    }
+
+    @Override
+    public void delete(String id) {
+        DBObject recordToDelete = findRecordToUpdate(id);
+        getDBCollection().remove(recordToDelete);
     }
 }

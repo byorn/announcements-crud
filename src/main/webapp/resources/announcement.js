@@ -14,8 +14,6 @@ $(function(){
     }); 
     
     function processJson(data) { 
-        
-        alert(data); 
         //once we get a response from the server refresh the page.
         location.reload();
     }
@@ -52,6 +50,22 @@ $(function(){
         $("#body").val("");
         $("#expirydate").val("");
         $("#startdate").val("");
+    });
+    
+    
+    $("#delete").click(function(){
+       
+       var selectedRow = JSON.stringify($("#announcements-table").bootstrapTable('getSelections')); 
+       
+       var rowObj = eval(selectedRow);
+       
+       $.ajax({
+             url: "http://localhost:8080/announcement/webresources/rest/"+rowObj[0].id,
+             type: "delete"
+             
+       });
+      
+       location.reload();
     });
     
     

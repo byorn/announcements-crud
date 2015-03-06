@@ -17,7 +17,7 @@
     
   </head>
   <body>
-    <h1>Announcements</h1>
+    
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -37,6 +37,10 @@
     <script src="http://malsup.github.com/jquery.form.js"></script> 
    
     
+    <h1>Announcements</h1>
+    
+    <p>To edit or delete; first select a row</p>
+    
     
     <!-- Table List of Announcements -->
     <table id="announcements-table" data-toggle="table" data-url="<%= request.getContextPath() %>/webresources/rest/get" data-id-field="id" data-click-to-select="true" data-single-select="true">
@@ -55,10 +59,12 @@
    
     
     <!-- Buttons Edit, and Create-->
-    <a href="#popup" class="open-popup-link btn btn-primary" role="button">Edit</button> &nbsp;&nbsp;
+    <div class="buttonPanel">
     <a id="createNewButton" href="#popup" class="open-popup-link btn btn-primary" role="button">Create New</a>
-    
-    
+    &nbsp;&nbsp;
+    <a href="#popup" class="open-popup-link btn btn-primary" role="button">Edit</a> &nbsp;&nbsp;
+    <a id="delete" class="btn btn-primary" role="button">Delete</a>
+    </div>
     
     <!-- The Popup Window that will show the edit and create form -->
     <div id="popup" class="white-popup mfp-hide">

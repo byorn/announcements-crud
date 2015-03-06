@@ -13,8 +13,10 @@ import javax.ws.rs.core.Response;
 
 
 import javax.ejb.Stateless;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -34,7 +36,7 @@ public class AnnouncementRestController{
      
        List<Announcement> announements = new ArrayList<>();
        //announements.addAll(AnnouncementsDAO.newInstance().getAnnouncementsDummyData());
-       announements.addAll(AnnouncementsDAO.newInstance().getAnnouncements());
+       announements.addAll(AnnouncementsDAO.getInstance().getAnnouncements());
        return Response.ok( announements).build();
     }
     
@@ -53,10 +55,10 @@ public class AnnouncementRestController{
         try{
             if("".equals(id)){
                 
-                AnnouncementsDAO.newInstance().createAnnouncement(obj);
+                AnnouncementsDAO.getInstance().createAnnouncement(obj);
             }else{
               
-                AnnouncementsDAO.newInstance().updateAnnouncement(obj);
+                AnnouncementsDAO.getInstance().updateAnnouncement(obj);
             }
             
         }catch(Throwable ex){
@@ -71,6 +73,24 @@ public class AnnouncementRestController{
 			.entity("Successfully Saved : " + title)
 			.build();
  
+    }
+    
+    @DELETE
+    @Path("{id}")
+    public Response remove(@PathParam("id") String id) {
+       try{
+             AnnouncementsDAO.getInstance().deleteAnnouncement(id);
+       }catch(Throwable ex){
+           Logger.getLogger(AnnouncementRestController.class.getName()).log(Level.SEVERE, null, ex);
+            
+            return Response.status(200)
+			.entity("Error occurred in Server")
+			.build();
+       }
+       return Response.status(200)
+			.entity("Successfully Deleted")
+			.build();
+        
     }
    
 }
