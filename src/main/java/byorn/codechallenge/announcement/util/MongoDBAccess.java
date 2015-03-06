@@ -23,8 +23,8 @@ public class MongoDBAccess implements IDatabaseAccess{
     /** We can move these parameters to a properties File **/
     private final String HOST="localhost";
     private final int PORT=27017;
-    private final String DATABASE="announcements";
-    private final String COLLECTION_NAME="announcements";
+    private final String DATABASE="announcements-db";
+    private final String COLLECTION_NAME="announcements-col";
     /* ************************************************ */
     
    
