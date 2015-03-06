@@ -1,5 +1,6 @@
 # announcements-crud
-<h3>Technologies</h3>
+Technologies
+--------------------------
 Java (JEE 7 Web profile), JQuery, Bootstrap, RESTful, MongoDB, Maven, GIT, JBoss AS 7 <br/>
 
 Additional extensions used
@@ -15,10 +16,13 @@ Responsive popup window to show the CreateNew Form.  http://dimsemenov.com/plugi
 JQuery Form plugin to post form data easily  http://malsup.com/jquery/form/
 </li>
 
-<h3>Prerequisites before running</h3>
+Prerequisites before running
+--------------------------
 Install Mongo DB and have the service running.
 Install JBoss AS 7,
 
-<h3>Running the Application</h3>
+Running the Application
+--------------------------
+
 
 
