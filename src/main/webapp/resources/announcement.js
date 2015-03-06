@@ -10,14 +10,10 @@ $(function(){
     //Initialize JQuery Forms Plugin
     $('#announcementForm').ajaxForm({ 
        
-        success:   processJson 
+        success:   refreshTableAndClosePopup 
     }); 
     
-    function processJson(data) { 
-        //once we get a response from the server refresh the page.
-        location.reload();
-    }
-    
+       
     
     //On every row click of the bootstrap table, I will set the fields to the form 
     //with the id
@@ -63,10 +59,20 @@ $(function(){
              url: "http://localhost:8080/announcement/webresources/rest/"+rowObj[0].id,
              type: "delete"
              
+       }).done(function( msg ) {
+             refreshTableAndClosePopup();
        });
       
-       location.reload();
+       
     });
     
+    
+    
+    function refreshTableAndClosePopup(){
+        //refresh the table
+        $("#announcements-table").bootstrapTable('refresh', { });
+        //close the popup
+        $.magnificPopup.instance.close();
+    }
     
 });
