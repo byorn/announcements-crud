@@ -24,13 +24,17 @@ public class MongoDBAccess implements IDatabaseAccess{
     private final int PORT=27017;
     private final String DATABASE="announcements";
     private final String COLLECTION_NAME="announcements";
+    /* ************************************************ */
     
+   
+    private final String COL_TITLE="title";
+    private final String COL_BODY="body";
+    private final String COL_STARTDATE="startDate";
+    private final String COL_EXPIRYDATE="expiryDate";
     
     private static MongoClient mongoClient = null;
     
-    
-    
-    
+      
     private DBCollection getDBCollection(){
        try {
             if(mongoClient==null){
@@ -56,10 +60,10 @@ public class MongoDBAccess implements IDatabaseAccess{
 	while(cursor.hasNext()) {
 	    DBObject dbObject = cursor.next();
             Announcement announcement = new Announcement();
-            announcement.setTitle(Util.handleNull(dbObject.get("title")));
-            announcement.setBody(Util.handleNull(dbObject.get("body")));
-            announcement.setStartDate(Util.handleNull(dbObject.get("startDate")));
-            announcement.setExpiryDate(Util.handleNull(dbObject.get("expiryDate")));
+            announcement.setTitle(Util.handleNull(dbObject.get(COL_TITLE)));
+            announcement.setBody(Util.handleNull(dbObject.get(COL_BODY)));
+            announcement.setStartDate(Util.handleNull(dbObject.get(COL_STARTDATE)));
+            announcement.setExpiryDate(Util.handleNull(dbObject.get(COL_EXPIRYDATE)));
             
             list.add(announcement);
         } 
@@ -69,10 +73,10 @@ public class MongoDBAccess implements IDatabaseAccess{
     @Override
     public void createNew(Announcement announcement) {
         
-        BasicDBObject doc = new BasicDBObject("title", announcement.getTitle())
-        .append("body", announcement.getBody())
-        .append("startDate", announcement.getStartDate())
-        .append("expiryDate", announcement.getExpiryDate());
+        BasicDBObject doc = new BasicDBObject(COL_TITLE, announcement.getTitle())
+        .append(COL_BODY, announcement.getBody())
+        .append(COL_STARTDATE, announcement.getStartDate())
+        .append(COL_EXPIRYDATE, announcement.getExpiryDate());
         
         getDBCollection().insert(doc);
     }

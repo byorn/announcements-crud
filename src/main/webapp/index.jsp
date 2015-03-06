@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Announcements-Code Challenge</title>
 
     <!-- Bootstrap -->
     <link href="resources/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,11 +35,15 @@
     
     <!-- jQuery Form component for passing form Data -->
     <script src="http://malsup.github.com/jquery.form.js"></script> 
+   
     
-    <table data-toggle="table" data-url="<%= request.getContextPath() %>/webresources/rest/get" data-cache="false" data-height="299">
+    
+    
+    <table data-toggle="table" data-url="<%= request.getContextPath() %>/webresources/rest/get" data-cache="false" data-height="500">
     <thead>
         
          <tr>
+            <th data-field="state" data-radio="true"></th>
             <th data-field="title">TITLE</th>
             <th data-field="body">BODY</th>
             <th data-field="startDate">START DATE</th>
@@ -49,8 +53,8 @@
     </thead>
     </table>
  
-    
-    <a href="#popup" class="open-popup-link">Create New</a>
+    <a id="get-selections" href="#" class="btn btn-primary" role="button">Edit</a>
+    <a href="#popup" class="open-popup-link btn btn-primary" role="button">Create New</a>
     
     <div id="popup" class="white-popup mfp-hide">
         
@@ -62,7 +66,7 @@
                     Title
                 </td>
                 <td>
-                    <input type="text" name="title" size="50"/>
+                    <input type="text" name="title" size="50" class="form-control"/>
                 </td>
             </tr>
             
@@ -71,7 +75,7 @@
                     Body
                 </td>
                 <td>
-                    <input type="text" name="body" size="50"/>
+                    <textarea rows="10" name="body" cols="50" class="form-control"></textarea>
                 </td>
             </tr>
             
@@ -81,7 +85,7 @@
                     Start Date
                 </td>
                 <td>
-                    <input type="text" name="startdate" size="50"/>
+                    <input type="text" name="startdate" size="50" class="form-control"/>
                 </td>
             </tr>
             
@@ -90,7 +94,7 @@
                     Expiry Date
                 </td>
                 <td>
-                    <input type="text" name="expirydate" size="50"/>
+                    <input type="text" name="expirydate" size="50" class="form-control"/>
                 </td>
             </tr>
             
@@ -99,7 +103,7 @@
                    
                 </td>
                 <td>
-                    <input type="submit" value="Submit"/>
+                    <input type="submit" value="Submit" class="btn btn-primary" role="button"/>
                 </td>
             </tr>
             
