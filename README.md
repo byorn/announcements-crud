@@ -1,4 +1,6 @@
 # announcements-crud
+Displays a list of Announcements, with CRUD Operations. The interface is a Single Page with zero page refreshes, and is responsive in design.
+
 Technologies
 --------------------------
 Java (JEE 7 Web profile), JQuery, Bootstrap, RESTful, MongoDB, Maven, GIT, Jboss-as-7.1.1.Final <br/>
