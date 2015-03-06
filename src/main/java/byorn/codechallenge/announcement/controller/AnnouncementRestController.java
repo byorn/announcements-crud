@@ -68,7 +68,7 @@ public class AnnouncementRestController{
         }
 	
         return Response.status(200)
-			.entity("Successfully Created : " + title)
+			.entity("Successfully Saved : " + title)
 			.build();
  
     }

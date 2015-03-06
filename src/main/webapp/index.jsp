@@ -38,10 +38,8 @@
    
     
     
-    
-    <table id="announcements-table" data-toggle="table" data-url="<%= request.getContextPath() %>/webresources/rest/get" data-id-field="id"
-          data-click-to-select="true" data-single-select="true"
-           >
+    <!-- Table List of Announcements -->
+    <table id="announcements-table" data-toggle="table" data-url="<%= request.getContextPath() %>/webresources/rest/get" data-id-field="id" data-click-to-select="true" data-single-select="true">
     <thead>
         
          <tr>
@@ -54,64 +52,63 @@
         
     </thead>
     </table>
+   
+    
+    <!-- Buttons Edit, and Create-->
     <a href="#popup" class="open-popup-link btn btn-primary" role="button">Edit</button> &nbsp;&nbsp;
     <a id="createNewButton" href="#popup" class="open-popup-link btn btn-primary" role="button">Create New</a>
     
+    
+    
+    <!-- The Popup Window that will show the edit and create form -->
     <div id="popup" class="white-popup mfp-hide">
-        
-        <form id="announcementForm" action="<%= request.getContextPath() %>/webresources/rest/post" method="post"> 
-        <table>
-            
-            <tr>
-                <td>
-                    Title
-                </td>
-                <td>
-                    <input id="id" type="hidden" name="id" size="50"/>
-                    <input id="title" type="text" name="title" size="50" class="form-control"/>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    Body
-                </td>
-                <td>
-                    <textarea id="body" rows="10" name="body" cols="50" class="form-control"></textarea>
-                </td>
-            </tr>
-            
-            
-             <tr>
-                <td>
-                    Start Date
-                </td>
-                <td>
-                    <input id="startdate" type="text" name="startdate" size="50" class="form-control"/>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    Expiry Date
-                </td>
-                <td>
-                    <input id="expirydate" type="text" name="expirydate" size="50" class="form-control"/>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                   
-                </td>
-                <td>
-                    <input type="submit" value="Submit" class="btn btn-primary" role="button"/>
-                </td>
-            </tr>
-            
-        </table>
+
+        <form id="announcementForm" action="<%= request.getContextPath()%>/webresources/rest/post" method="post"> 
+            <table>
+                <tr>
+                    <td>
+                        Title
+                    </td>
+                    <td>
+                        <input id="id" type="hidden" name="id" size="50"/>
+                        <input id="title" type="text" name="title" size="50" class="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Body
+                    </td>
+                    <td>
+                        <textarea id="body" rows="10" name="body" cols="50" class="form-control"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Start Date
+                    </td>
+                    <td>
+                        <input id="startdate" type="text" name="startdate" size="50" class="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Expiry Date
+                    </td>
+                    <td>
+                        <input id="expirydate" type="text" name="expirydate" size="50" class="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <input type="submit" value="Submit" class="btn btn-primary" role="button"/>
+                    </td>
+                </tr>
+            </table>
         </form>
-        
+
     </div>
     
     
