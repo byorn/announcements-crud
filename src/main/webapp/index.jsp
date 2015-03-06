@@ -54,7 +54,7 @@
         
     </thead>
     </table>
-    <a href="#popup" class="open-popup-link btn btn-primary" role="button">Edit</button>
+    <a href="#popup" class="open-popup-link btn btn-primary" role="button">Edit</button> &nbsp;&nbsp;
     <a id="createNewButton" href="#popup" class="open-popup-link btn btn-primary" role="button">Create New</a>
     
     <div id="popup" class="white-popup mfp-hide">

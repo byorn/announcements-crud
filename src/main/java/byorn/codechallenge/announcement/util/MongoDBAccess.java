@@ -87,13 +87,12 @@ public class MongoDBAccess implements IDatabaseAccess{
     @Override
     public void update(Announcement announcement) {
         DBObject original = findRecordToUpdate(announcement.getId());
-        
-        BasicDBObject doc = new BasicDBObject(COL_TITLE, announcement.getTitle())
+        BasicDBObject newRecordToUpdate = new BasicDBObject(COL_TITLE, announcement.getTitle())
         .append(COL_BODY, announcement.getBody())
         .append(COL_STARTDATE, announcement.getStartDate())
         .append(COL_EXPIRYDATE, announcement.getExpiryDate());
         
-        getDBCollection().update(original, doc);
+        getDBCollection().update(original, newRecordToUpdate);
     }
     
     

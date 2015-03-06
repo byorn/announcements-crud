@@ -2,7 +2,6 @@ package byorn.codechallenge.announcement.controller;
 
 import byorn.codechallenge.announcement.dao.AnnouncementsDAO;
 import byorn.codechallenge.announcement.entity.Announcement;
-import byorn.codechallenge.announcement.util.MongoDBAccess;
 import byorn.codechallenge.announcement.viewhelper.AnnouncementViewHelper;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 
 
 import javax.ejb.Stateless;
