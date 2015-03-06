@@ -23,10 +23,11 @@ Install JBoss AS 7,
 
 Running the Application
 --------------------------
-mvn clean install <br/>
-copy the built war file from the target directory to the Jboss - jboss-as-7.1.1.Final\standalone\deployments folder <br/>
-in jboss-as-7.1.1.Final\bin run standalone.bat.<br/>
-Page can be accessed from http://localhost:8080/announcement/
+
+1. mvn clean install <br/>
+2. copy the built war file from the target directory to the Jboss - jboss-as-7.1.1.Final\standalone\deployments folder <br/>
+3. in jboss-as-7.1.1.Final\bin run standalone.bat.<br/>
+4. Page can be accessed from <a href='http://localhost:8080/announcement/'>http://localhost:8080/announcement/</a>
 
 
 
