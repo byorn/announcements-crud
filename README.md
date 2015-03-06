@@ -18,7 +18,7 @@ JQuery Form plugin to post form data easily  http://malsup.com/jquery/form/
 </ul>
 Prerequisites before running
 --------------------------
-Install Mongo DB and have the service running. <br/>
+Install Mongo DB and have the service running. on host: localhost port: 27017 <br/>
 Install JBoss AS 7,
 
 Running the Application
