@@ -15,7 +15,7 @@ Responsive popup window to show the CreateNew Form.  http://dimsemenov.com/plugi
 <li>
 JQuery Form plugin to post form data easily  http://malsup.com/jquery/form/
 </li>
-
+</ul>
 Prerequisites before running
 --------------------------
 Install Mongo DB and have the service running.
