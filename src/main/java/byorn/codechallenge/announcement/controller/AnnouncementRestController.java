@@ -36,7 +36,7 @@ public class AnnouncementRestController{
     public Response getAllAnnouncements() {
      
        List<Announcement> announements = new ArrayList<>();
-       announements.addAll(AnnouncementsDAO.newInstance().getAnnouncementsDummyData());
+       //announements.addAll(AnnouncementsDAO.newInstance().getAnnouncementsDummyData());
        announements.addAll(AnnouncementsDAO.newInstance().getAnnouncements());
        return Response.ok( announements).build();
     }
@@ -44,18 +44,24 @@ public class AnnouncementRestController{
     
     @POST
     @Path("/post")
-    public Response createAnnouncment(
+    public Response createOrUpdateAnnouncment(
+                @FormParam("id") String id,
 		@FormParam("title") String title,
                 @FormParam("body") String body,
                 @FormParam("startdate") String startDate,
                 @FormParam("expirydate") String expiryDate) {
  
-        Announcement obj = AnnouncementViewHelper.getAnnouncement(title, body, expiryDate, startDate);
+        Announcement obj = AnnouncementViewHelper.getAnnouncement(id, title, body, expiryDate, startDate);
         
         try{
+            if("".equals(id)){
+                
+                AnnouncementsDAO.newInstance().createAnnouncement(obj);
+            }else{
+              
+                AnnouncementsDAO.newInstance().updateAnnouncement(obj);
+            }
             
-            AnnouncementsDAO.newInstance().createAnnouncement(obj);
-        
         }catch(Throwable ex){
             Logger.getLogger(AnnouncementRestController.class.getName()).log(Level.SEVERE, null, ex);
             

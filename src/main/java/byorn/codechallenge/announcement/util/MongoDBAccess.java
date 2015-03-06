@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -27,6 +28,7 @@ public class MongoDBAccess implements IDatabaseAccess{
     /* ************************************************ */
     
    
+    private final String COL_ID="_id";
     private final String COL_TITLE="title";
     private final String COL_BODY="body";
     private final String COL_STARTDATE="startDate";
@@ -60,6 +62,7 @@ public class MongoDBAccess implements IDatabaseAccess{
 	while(cursor.hasNext()) {
 	    DBObject dbObject = cursor.next();
             Announcement announcement = new Announcement();
+            announcement.setId(Util.handleNull(dbObject.get(COL_ID)));
             announcement.setTitle(Util.handleNull(dbObject.get(COL_TITLE)));
             announcement.setBody(Util.handleNull(dbObject.get(COL_BODY)));
             announcement.setStartDate(Util.handleNull(dbObject.get(COL_STARTDATE)));
@@ -80,5 +83,24 @@ public class MongoDBAccess implements IDatabaseAccess{
         
         getDBCollection().insert(doc);
     }
+
+    @Override
+    public void update(Announcement announcement) {
+        DBObject original = findRecordToUpdate(announcement.getId());
+        
+        BasicDBObject doc = new BasicDBObject(COL_TITLE, announcement.getTitle())
+        .append(COL_BODY, announcement.getBody())
+        .append(COL_STARTDATE, announcement.getStartDate())
+        .append(COL_EXPIRYDATE, announcement.getExpiryDate());
+        
+        getDBCollection().update(original, doc);
+    }
     
+    
+    private DBObject findRecordToUpdate(String id){
+            BasicDBObject query = new BasicDBObject();
+            query.put("_id", new ObjectId(id));
+            DBObject dbObj = getDBCollection().findOne(query);
+            return dbObj;
+    }
 }

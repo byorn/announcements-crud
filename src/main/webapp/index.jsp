@@ -39,11 +39,13 @@
     
     
     
-    <table data-toggle="table" data-url="<%= request.getContextPath() %>/webresources/rest/get" data-cache="false" data-height="500">
+    <table id="announcements-table" data-toggle="table" data-url="<%= request.getContextPath() %>/webresources/rest/get" data-id-field="id"
+          data-click-to-select="true" data-single-select="true"
+           >
     <thead>
         
          <tr>
-            <th data-field="state" data-radio="true"></th>
+            <th data-field="state" data-checkbox="true"></th>
             <th data-field="title">TITLE</th>
             <th data-field="body">BODY</th>
             <th data-field="startDate">START DATE</th>
@@ -52,9 +54,8 @@
         
     </thead>
     </table>
- 
-    <a id="get-selections" href="#" class="btn btn-primary" role="button">Edit</a>
-    <a href="#popup" class="open-popup-link btn btn-primary" role="button">Create New</a>
+    <a href="#popup" class="open-popup-link btn btn-primary" role="button">Edit</button>
+    <a id="createNewButton" href="#popup" class="open-popup-link btn btn-primary" role="button">Create New</a>
     
     <div id="popup" class="white-popup mfp-hide">
         
@@ -66,7 +67,8 @@
                     Title
                 </td>
                 <td>
-                    <input type="text" name="title" size="50" class="form-control"/>
+                    <input id="id" type="hidden" name="id" size="50"/>
+                    <input id="title" type="text" name="title" size="50" class="form-control"/>
                 </td>
             </tr>
             
@@ -75,7 +77,7 @@
                     Body
                 </td>
                 <td>
-                    <textarea rows="10" name="body" cols="50" class="form-control"></textarea>
+                    <textarea id="body" rows="10" name="body" cols="50" class="form-control"></textarea>
                 </td>
             </tr>
             
@@ -85,7 +87,7 @@
                     Start Date
                 </td>
                 <td>
-                    <input type="text" name="startdate" size="50" class="form-control"/>
+                    <input id="startdate" type="text" name="startdate" size="50" class="form-control"/>
                 </td>
             </tr>
             
@@ -94,7 +96,7 @@
                     Expiry Date
                 </td>
                 <td>
-                    <input type="text" name="expirydate" size="50" class="form-control"/>
+                    <input id="expirydate" type="text" name="expirydate" size="50" class="form-control"/>
                 </td>
             </tr>
             

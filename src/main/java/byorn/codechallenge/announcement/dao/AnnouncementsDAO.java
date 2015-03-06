@@ -42,4 +42,10 @@ public class AnnouncementsDAO {
         dbAccess.createNew(obj);
     }
     
+     public void updateAnnouncement(Announcement obj){
+        IDatabaseAccess dbAccess = new MongoDBAccess();
+        
+        dbAccess.update(obj);
+    }
+    
 }

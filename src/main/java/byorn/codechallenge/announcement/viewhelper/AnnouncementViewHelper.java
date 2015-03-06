@@ -13,13 +13,10 @@ import byorn.codechallenge.announcement.entity.Announcement;
  */
 public class AnnouncementViewHelper {
     
-    public static void appendAnchorLinkToTitle(Announcement announcment){
-        String title = announcment.getTitle();
-        
-    }
-    
-    public static Announcement getAnnouncement(String title, String body, String expiryDate, String startDate){
+       
+    public static Announcement getAnnouncement(String id, String title, String body, String expiryDate, String startDate){
         Announcement obj = new Announcement();
+        obj.setId(id);
         obj.setTitle(title);
         obj.setBody(body);
         obj.setStartDate(startDate);

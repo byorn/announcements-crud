@@ -15,4 +15,5 @@ import java.util.List;
 public interface IDatabaseAccess {
     public List<Announcement> getAnnouncements();
     public void createNew(Announcement announcement);
+    public void update(Announcement announcement);
 }
